@@ -40,6 +40,7 @@ test('test snapshot tool list', async ({ client }) => {
     'browser_snapshot',
     'browser_tabs',
     'browser_take_screenshot',
+    'browser_take_ocr_friendly_screenshot',
     'browser_wait_for',
   ]));
 });
@@ -51,6 +52,7 @@ test('test capabilities (pdf)', async ({ startClient }) => {
   const { tools } = await client.listTools();
   const toolNames = tools.map(t => t.name);
   expect(toolNames).toContain('browser_pdf_save');
+  expect(toolNames).toContain('browser_trigger_print');
 });
 
 test('test capabilities (vision)', async ({ startClient }) => {
